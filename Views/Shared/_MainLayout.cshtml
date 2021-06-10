@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+@if (IsSectionDefined("Head"))
+{
+    @RenderSection("Head")
+}
+else
+{
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <link rel="stylesheet" href="~/Content/css/header.css">
+        <link rel="stylesheet" href="~/Content/css/main.css">
+        <link rel="stylesheet" href="~/Content/css/footer.css">
+        <link rel="stylesheet" href="~/Content/css/media.css">
+        <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>@ViewBag.Title</title>
+    </head>
+}
+<body>
+    @if (IsSectionDefined("Header"))
+    {
+        @RenderSection("Header")
+    }
+    else
+    {
+    <header class="topnav" id="myTopnav">
+        <div class="row-header">
+            @Html.ActionLink("Главная", "Index", "Home", null, new { @class = "home active" })
+            <a href="#test">Тесты</a>
+            @Html.ActionLink("Войти", "SignIn", "Account", null, new { @class="logReg" })
+            @Html.ActionLink("Зарегистрироваться", "SignUp", "Account", null, new { @class="logReg" })
+            <a href="javascript:void(0)" class="icon" onclick="myFunction()">&#9776</a>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Наверх</button>
+        </div>
+    </header>
+    }
+
+        @RenderBody()
+
+    @if (IsSectionDefined("Footer"))
+    {
+        @RenderSection("Footer")
+    }
+    else
+    {
+        <footer>
+            <div class="top-f">
+                <div class="row">
+                    <div class="row-wrap">
+                        <div class="col-v2">
+                            <p class="text12">ПОМОЩЬ</p>
+                            <ul class="ul-f">
+                                <li>@Html.ActionLink("Вопрос-Ответ","","")</li>
+                                <li>@Html.ActionLink("Как готовить кофе?","","")</li>
+                                <li>@Html.ActionLink("Контакты","","")</li>
+                            </ul>
+                        </div>
+                        <div class="col-v2">
+                            <p class="text12">ПРОЕКТ</p>
+                            <ul class="ul-f">
+                                <li>@Html.ActionLink("Проект","","")</li>
+                                <li>@Html.ActionLink("Достижения","","")</li>
+                                <li>@Html.ActionLink("Учебная программа","","")</li>
+                            </ul>
+                        </div>
+                         <div class="col-v2">
+                            <p class="text12">ГЛАВЫ</p>
+                            <ul class="ul-f">
+                                <li>@Html.ActionLink("Приготовление","Chapter","Chapter")</li>
+                                <li>@Html.ActionLink("Обжарка","","")</li>
+                                <li>@Html.ActionLink("Выращивание","","")</li>
+                                <li>@Html.ActionLink("Оборудование","","")</li>
+                            </ul>
+                        </div>
+                        <div class="col-v4">
+                        <div class="main center">
+                            <div class="box center">
+                                <img src="~/Content/img/Author/me.jpg" alt="My Face">
+                                <div>
+                                    <p class="user_name">Антон Степанюк</p>
+                                    <p class="skill">Front-end developer</p>
+                                </div>
+                                <div class="arr_container center ">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="left_container off">
+                                    <p>Умения</p>
+                                    <div class="skills">
+                                        <div>Html</div>
+                                        <div>Css</div>
+                                        <div>C#</div>
+                                        <div>ASP.NET</div>
+                                        <div>MVC5</div>
+                                    </div>
+                                    <div class="icons">
+                                        <i class="fab fa-github"></i>
+                                        <i class="fab fa-linkedin"></i>
+                                     <i class="fab fa-twitter"></i>
+                                        <i class="fab fa-facebook"></i>
+                                    </div>
+                                    <div class="cancel center">
+                                     <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-f">
+                <div class="row">
+                    <div class="row-wrap middle">
+                        <div class="col-v2 col-m5 col-p10">
+                            <div class="text-f">© 16.06.2021 «Диплом»</div>
+                        </div>
+                        <div class="col-v4 col-m5 mobNone">
+                            <div class="text-f">Использование любых материалов с данного ресурса возможно только после письменного согласия владельца авторских прав</div>
+                        </div>
+                        <div class="col-v4 right tableNone">
+                            @Html.ActionLink("Политика конфиденциальности","","",null,new {@class="link-f",@target="_blank"})
+                            <br>
+                            @Html.ActionLink("Пользовательское соглашение","","",null,new {@class="link-f",@target="_blank"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    }
+
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
+    else
+    {
+    <script src="~/Content/js/myScript.js" type="text/javascript"></script>
+    }
+
+</body>
+</html>

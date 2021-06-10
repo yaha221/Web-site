@@ -1,0 +1,874 @@
+﻿@model IEnumerable<MySite.Models.Article>
+@{
+    ViewBag.Title = "Главная";
+    int i = 0;
+}
+<div class="content">
+    <div class="row">
+        <h1 class="h2 indetn">Кофейный дневник</h1>
+        <ul class="menuLink">
+            <li>
+                @Html.ActionLink("Все главы", "Index", "Home", null, new { @class = "activeMenuLink" })
+            </li>
+            <li>
+                <a href="/Глава/Приготовление">Приготовление</a>
+            </li>
+            <li>
+                <a href="/Глава/Обжарка">Обжарка</a>
+            </li>
+            <li>
+                <a href="/Глава/Выращивание">Выращивание</a>
+            </li>
+            <li>
+                <a href="/Глава/Оборудование">Оборудование</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row row-main" style="display:flex;">
+        <div class="col-main">
+            @foreach (var item in Model)
+            {
+                i++;
+                if (item.ArticleID == 2)
+                {
+                    <div class="newArticle">
+                        <div class="imgFon">
+                            <img class="cover-img" src="@Url.Content($"../{item.ImageScrMain}")" alt="">
+                            <div class="big-hover">
+                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                    <img src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                </a>
+                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                            </div>
+                        </div>
+                        <div class="absWrap">
+                            <div class="top-info">
+                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                    @item.NumViews
+                                </a>
+                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                    @item.NumComments
+                                </a>
+                            </div>
+                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="surface">
+                                <p class="theme">@item.Chapter.NameChapter</p>
+                            </a>
+                            <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="surface marTopNone">
+                                <p class="art-header">@item.NameArticle</p>
+                                <div class="art-descr">@item.ShortDescriptionArticle</div>
+                            </a>
+                            <p class="art-date">
+                                <span class="month-text">@item.DateCreateArticle</span>
+                                <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                            </p>
+                        </div>
+                    </div>
+                }
+            }
+            <div class="row" style="padding: 0;">
+                <div class="sort menuLink-wrap verticalScroll">
+                    <a class="sort-inner">Сортировать по: </a>
+                    <a class="sort-inner blog-category-sort activeBlog" data-sort="date">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        новизне
+                    </a>
+                    <a class="sort-inner blog-category-sort" data-sort="likes">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        рекомендациям
+                    </a>
+                    <a class="sort-inner blog-category-sort" data-sort="views">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        просмотров
+                    </a>
+                    <p class="all-articles">@i статей</p>
+                </div>
+                <div class="for-paginate">
+
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 7)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg" style="margin-left:20px;margin-right:20px;">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 4)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 14)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 9)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg" style="margin-left:20px;margin-right:20px;">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 16)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 8)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card big"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"))">
+                                            <div class="big-hover">
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                            </div>
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="surface">
+                                                <p class="theme">@item.Chapter.NameChapter</p>
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="surface marTopNone">
+                                                <p class="art-header">@item.NameArticle</p>
+                                                <div class="art-descr">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <p class="art-date">
+                                                <span class="month-text">@item.DateCreateArticle</span>
+                                                <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg-8">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 12)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card big"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"))">
+                                            <div class="big-hover">
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                            </div>
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="surface">
+                                                <p class="theme">@item.Chapter.NameChapter</p>
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="surface marTopNone">
+                                                <p class="art-header">@item.NameArticle</p>
+                                                <div class="art-descr">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <p class="art-date">
+                                                <span class="month-text">@item.DateCreateArticle</span>
+                                                <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg" style="margin-left:15px;margin-right:0;">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 5)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg-8" style="padding-left: 0; padding-right: 0;">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 11)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card big"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"))">
+                                            <div class="big-hover">
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                            </div>
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="surface">
+                                                <p class="theme">@item.Chapter.NameChapter</p>
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="surface marTopNone">
+                                                <p class="art-header">@item.NameArticle</p>
+                                                <div class="art-descr">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <p class="art-date">
+                                                <span class="month-text">@item.DateCreateArticle</span>
+                                                <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg" style="margin-left:15px;margin-right:0;">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 17)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 15)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg" style="margin-left:20px;margin-right:20px;">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 6)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card big"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"))">
+                                            <div class="big-hover">
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                            </div>
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="surface">
+                                                <p class="theme">@item.Chapter.NameChapter</p>
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="surface marTopNone">
+                                                <p class="art-header">@item.NameArticle</p>
+                                                <div class="art-descr">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <p class="art-date">
+                                                <span class="month-text">@item.DateCreateArticle</span>
+                                                <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 13)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg" style="margin-left:0;margin-right:14px;">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 18)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"));">
+                                            <div class="itemres-hover">
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="theme-link">
+                                                @item.Chapter.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")">
+                                                <p class="main-article-header">@item.NameArticle</p>
+                                                <div class="main-article-subheader">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@item.DateCreateArticle</span>
+                                                    <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="col-lg-8" style="padding-left: 0px; padding-right: 0">
+                            @foreach (var item in Model)
+                            {
+                                if (item.ArticleID == 10)
+                                {
+                                    <div class="itemres new">
+                                        <div class="article-card big"
+                                             style="background-image: url(@Url.Content($"../{item.ImageScrMain}"))">
+                                            <div class="big-hover">
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="comments">
+                                                            <img class="commentView"
+                                                                 src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            @item.NumViews
+                                                        </a>
+                                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            @item.NumComments
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")"
+                                                         alt="">
+                                                </a>
+                                                <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                            </div>
+                                            <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="surface">
+                                                <p class="theme">@item.Chapter.NameChapter</p>
+                                            </a>
+                                            <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="surface marTopNone">
+                                                <p class="art-header">@item.NameArticle</p>
+                                                <div class="art-descr">@item.ShortDescriptionArticle</div>
+                                            </a>
+                                            <p class="art-date">
+                                                <span class="month-text">@item.DateCreateArticle</span>
+                                                <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-side">
+            <div class="tags">
+                @Html.ActionLink("Эспрессо", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Вода", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Молоко", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Кофемашина", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Кофемолка", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Книги", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Альтернатива", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("История кофе", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Все теги", "", "", null, new { @class = "tag-link" })
+            </div>
+            <div class="groupPosts_rigthBlock">
+                @foreach (var item in Model)
+                {
+                    if (item.ArticleID == 1)
+                    {
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card big"
+                                     style="background-image: url(@Url.Content($"../{item.ImageScrMain}"))">
+                                    <div class="big-hover">
+                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                    </div>
+                                    <a href="@Url.Content($"../Глава/{item.Chapter.NameChapter}")" class="surface">
+                                        <p class="theme">@item.Chapter.NameChapter</p>
+                                    </a>
+                                    <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="surface marTopNone">
+                                        <p class="art-header">@item.NameArticle</p>
+                                        <div class="art-descr">@item.ShortDescriptionArticle</div>
+                                    </a>
+                                    <p class="art-date">
+                                        <span class="month-text">@item.DateCreateArticle</span>
+                                        <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    if (item.ArticleID == 3)
+                    {
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card big"
+                                     style="background-image: url(@Url.Content($"../{item.ImageScrMain}"))">
+                                    <div class="big-hover">
+                                        <a href="@Url.Content($"../Статья/{item.NameArticle}")" class="absLink"></a>
+                                    </div>
+                                    <a href="\" class="surface">
+                                        <p class="theme">@item.Chapter.NameChapter</p>
+                                    </a>
+                                    <a href="\" class="surface marTopNone">
+                                        <p class="art-header">@item.NameArticle</p>
+                                        <div class="art-descr">@item.ShortDescriptionArticle</div>
+                                    </a>
+                                    <p class="art-date">
+                                        <span class="month-text">@item.DateCreateArticle</span>
+                                        <span class="time-text">@item.TimeRead мин. на прочтение</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,162 @@
+﻿@using MySite.Models
+@model Chapter
+@{
+    ViewBag.Title = @Model.NameChapter;
+}
+@section Head{
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <link rel="stylesheet" href="~/Content/css/header.css">
+        <link rel="stylesheet" href="~/Content/css/chapter.css">
+        <link rel="stylesheet" href="~/Content/css/footer.css">
+        <link rel="stylesheet" href="~/Content/css/media.css">
+        <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>@ViewBag.Title</title>
+    </head>
+}
+<div class="content">
+    <div class="row">
+        <h1 class="h2 indetn">Кофейный дневник</h1>
+        <ul class="menuLink">
+            <li>
+                <a href="/">Все главы</a>
+            </li>
+            <li>
+                @if (Model.NameChapter == "Приготовление")
+                {
+                    <a href="/Глава/Приготовление" class="activeMenuLink">Приготовление</a>
+                    
+                }
+                else
+                {
+                    <a href="/Глава/Приготовление" >Приготовление</a>
+                }
+            </li>
+            <li>
+                @if (Model.NameChapter == "Обжарка")
+                {
+                    <a href="/Глава/Обжарка" class="activeMenuLink">Обжарка</a>
+                }
+                else
+                {
+                    <a href="/Глава/Обжарка" >Обжарка</a>
+                }
+            </li>
+            <li>
+                @if (Model.NameChapter == "Выращивание")
+                {
+                <a href="/Глава/Выращивание" class="activeMenuLink">Выращивание</a>
+                }
+                else
+                {
+                <a href="/Глава/Выращивание" >Выращивание</a>
+                }
+            </li>
+            <li>
+                @if (Model.NameChapter == "Оборудование")
+                {
+                <a href="/Глава/Оборудование" class="activeMenuLink">Оборудование</a>
+                }
+                else
+                {
+                    <a href="/Глава/Оборудование" >Оборудование</a>
+                }
+            </li>
+        </ul>
+    </div>
+    <div class="row row-main" style="display:flex;">
+        <div class="col-side">
+            <div class="tags">
+                @Html.ActionLink("Все теги", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Эспрессо", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Молоко", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Альтернатива", "", "", null, new { @class = "tag-link" })
+            </div>
+        </div>
+        <div class="col-main">
+            <div class="row" style="padding: 0;">
+                <div class="sort menuLink-wrap verticalScroll">
+                    <a class="sort-inner">Сортировать по: </a>
+                    <a class="sort-inner blog-category-sort activeBlog" data-sort="date">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        новизне
+                    </a>
+                    <a class="sort-inner blog-category-sort" data-sort="likes">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        рекомендациям
+                    </a>
+                    <a class="sort-inner blog-category-sort" data-sort="views">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        просмотров
+                    </a>
+                    @{ int i = 0; 
+                        foreach(Article article in Model.Articles)
+                        {
+                            i++;
+                        }
+                        <p class="all-articles">@i статей</p>
+                    }
+                </div>
+                <div class="for-paginate">
+                    @{
+                        foreach (Article article1 in Model.Articles)
+                        {
+                            <div class="theme-article">
+                                <div class="row" style="display: flex; padding: 0;">
+                                    <div class="col-lg-4">
+                                        <div class="itemres new">
+                                            <div class="article-card" style="background-image: url(@Url.Content($"~/{article1.ImageScrMain}"));">
+                                                <div class="itemres-hover">
+                                                    <a href="@Url.Content($"~/Статья/{@article1.NameArticle}")" class="absLink"></a>
+                                                    <div class="absWrap">
+                                                        <div class="top-info">
+                                                            <a href="@Url.Content($"~/Статья/{@article1.NameArticle}")" class="comments">
+                                                                <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                                0
+                                                            </a>
+                                                            <a href="@Url.Content($"~/Статья/{@article1.NameArticle}")" class="views">
+                                                                <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                                0
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="fav">
+                                                        <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg">
+                                        <div class="main-article">
+                                            <a href="/@Model.NameChapter" class="theme-link">
+                                                @Model.NameChapter
+                                            </a>
+                                            <a href="@Url.Content($"~/Статья/{@article1.NameArticle}")">
+                                                <p class="main-article-header">@article1.NameArticle</p>
+                                                <div class="main-article-subheader">@article1.ShortDescriptionArticle</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">@article1.DateCreateArticle</span>
+                                                    <span class="author-text">Юлия Бенедикт</span>
+                                                    <span class="time-text">@article1.TimeRead мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

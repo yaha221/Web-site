@@ -1,0 +1,65 @@
+﻿@model MySite.Models.Account
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewBag.Title = "Регистрация";
+}
+@section Head{
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <link rel="stylesheet" href="~/Content/css/header.css">
+        <link rel="stylesheet" href="~/Content/css/login.css">
+        <link rel="stylesheet" href="~/Content/css/footer.css">
+        <link rel="stylesheet" href="~/Content/css/media.css">
+        <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>@ViewBag.Title</title>
+    </head>
+}
+@section Header{
+    <header class="topnav" id="myTopnav">
+        <div class="row-header">
+            @Html.ActionLink("Главная", "Index", "Home", null, new { @class = "home" })
+            <a href="#test">Тесты</a>
+            @Html.ActionLink("Войти", "SignIn", "Account", null, new { @style = "float:right;" })
+            @Html.ActionLink("Зарегистрироваться", "SignUp", "Account", null, new { @style = "float:right;", @class = "active" })
+            <a href="javascript:void(0)" class="icon" onclick="myFunction()">&#9776</a>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Наверх</button>
+        </div>
+    </header>
+}
+@using (Html.BeginForm())
+{
+<div class="login-box">
+    <h2>Регистрация</h2>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="user-box">
+        @Html.TextBoxFor(m => m.Login, new { @type = "text", @required = "" })
+        <label>Имя пользователя</label>
+        @Html.ValidationMessageFor(model => model.Login)
+    </div>
+    <div class="user-box">
+        @Html.TextBoxFor(m => m.Email, new { @type = "text", @required = "", @email = "" })
+        <label>Email</label>
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    <div class="user-box">
+        @Html.TextBoxFor(m => m.Password, new { @type = "password", @required = "" })
+        <label>Пароль</label>
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+    <div class="user-box">
+        <input type="password" name="" required="">
+        <label>Повторите пароль</label>
+    </div>
+    <input type="submit" value="Зарегистрироваться" class="submit">
+    @Html.ActionLink("Войти", "SignIn", "Account")
+</div>
+}
+@section Footer{
+
+}
+
+

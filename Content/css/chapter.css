@@ -1,0 +1,457 @@
+﻿:root {
+    --clr--btn: #0f0f0f;
+    --clr--fon: #f3e8ab41;
+    --clr--tag: #000000ec;
+    --clr--menuLink: #2c2c2cb9;
+}
+
+@font-face {
+    font-family: Linearicons-Free;
+    src: url(/Content/font/Linearicons-Free.ttf)
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*Chapter*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: white;
+}
+
+.content {
+    padding-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.row {
+    display: block;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0px auto;
+    padding: 0 50px;
+}
+
+h1.h2.indent {
+    margin-bottom: 30px;
+}
+
+h1.h2 {
+    font-size: 28px;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.menuLink {
+    margin-bottom: 20px;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 1300px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.menuLink li {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.activeMenuLink {
+    border-bottom: 1px solid black;
+}
+
+.menuLink li.activeMenuLink a {
+    color: black;
+}
+
+.menuLink a {
+    color: #2c2c2ce0;
+    margin-right: 0;
+    white-space: nowrap;
+    font-size: 16px;
+    letter-spacing: .18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .menuLink a:hover {
+        color: var(--clr--menuLink);
+        text-shadow: 0 0 25px var(--clr--menuLink), 0 0 50px var(--clr--menuLink), 0 0 75px var(--clr--menuLink), 0 0 100px var(--clr--menuLink);
+    }
+
+.col-main {
+    vertical-align: top;
+    padding-right: 10px;
+    padding-bottom: 100px;
+    display: inline-block;
+    height: auto;
+    width: 70%;
+}
+
+.col-side {
+    vertical-align: top;
+    display: inline-block;
+    padding: 10px;
+    height: auto;
+    width: 30%;
+}
+
+.col-side .tags{
+    margin-bottom: 25px;
+    padding: 20px 20px 5px 20px;
+    background-color: #5756534d;
+    border-radius: 5px;
+  }
+  .tags a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+  .tag-link{
+    padding: 4px 13px;
+    background-color: snow;
+    border: .5px solid #00000049;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-right: 3px;
+    transition: .2s ease;
+  }
+  .tags a:hover{
+    color:#ffffff;
+    background-color: var(--clr--tag);
+    box-shadow: 0 0 5px var(--clr--tag),
+                0 0 10px var(--clr--tag),
+                0 0 15px var(--clr--tag),
+                0 0 20px var(--clr--tag);
+  }
+
+.col-lg {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    width: 100%;
+}
+
+.col-lg-8 {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    width: 100%;
+}
+
+.itemres.new {
+    margin-right: 0;
+    margin-bottom: 0px;
+}
+
+.article-card {
+    height: 185px;
+    background-position: center center;
+    background-color: white;
+    background-size: cover;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.art-date {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 300;
+    opacity: .75;
+    font-size: .85rem;
+    display: inline-block;
+    align-items: flex-start;
+}
+
+.month-text {
+    margin-right: 1rem;
+    position: relative;
+    color: white;
+}
+
+.author-text {
+    margin-right: 1rem;
+    position: relative;
+    color: white;
+}
+
+.time-text {
+    position: relative;
+    color: white;
+}
+
+a.fav {
+    position: relative;
+    z-index: 1000;
+    float: right;
+    padding: 13px 13px;
+    border-radius: 100px;
+    background-color: #ffffff3d;
+}
+
+.absWrap {
+    position: relative;
+    z-index: 1;
+    flex: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+    .absWrap .surface {
+        display: inline-block;
+        color: white;
+        position: relative;
+        z-index: 11;
+        margin-top: auto;
+        margin-bottom: 0;
+        text-decoration: none;
+    }
+
+    .absWrap .theme {
+        font-size: 10px;
+        margin-bottom: 4px;
+        opacity: .8;
+        color: white;
+        padding-right: 30px;
+        position: relative;
+        text-transform: uppercase;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+.sort {
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 10px;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 30px;
+}
+
+a.sort-inner {
+    color: #999999;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.sort-inner {
+    text-decoration: none;
+    display: inline-block;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+p.all-articles {
+    display: inline-block;
+    font-size: 13px;
+    color: grey;
+    margin: 0 0 10px;
+    letter-spacing: .18px;
+}
+
+.blog-category-sort.activeBlog {
+    color: black !important;
+}
+
+    .blog-category-sort.activeBlog .lnr-arrow-down {
+        display: inline;
+    }
+
+.blog-category-sort .lnr {
+    display: none;
+}
+
+.lnr {
+    font-family: Linearicons-Free;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+.lnr-arrow-down::before {
+    content: "\E878";
+}
+
+.lnr-arrow-up {
+    font-weight: 700;
+    padding-right: 7px;
+    vertical-align: text-bottom;
+}
+
+    .lnr-arrow-up::before {
+        content: "\E877";
+    }
+
+.for-paginate {
+    margin: 0;
+}
+
+.theme-article {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #cecece;
+}
+
+.col-lg{
+    padding-left: 0;
+    padding-right: 0;
+}
+.itemres-hover {
+    position: relative;
+    height: 185px;
+    width: 100%;
+    opacity: 0;
+    background-color: black;
+    transition: .5s ease;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.itemres-hover:hover {
+        position: relative;
+        background-color: #0000008c;
+        height: 185px;
+        width: 100%;
+        padding: 20px;
+        opacity: 1;
+        cursor: pointer;
+        overflow: hidden;
+    }
+.absLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.itemres-hover .absWrap .top-info {
+    font-size: 13px;
+    position: relative;
+    z-index: 10;
+    margin-bottom: auto;
+    opacity: 0;
+}
+
+.itemres-hover:hover .top-info {
+    opacity: 1;
+}
+
+.comments {
+    color: white !important;
+}
+
+.itemres-hover .absWrap .top-info a:not(:last-child) {
+    margin-right: 1.5rem;
+    text-decoration: none;
+}
+
+.itemres-hover .absWrap .top-info .views {
+    padding-right: 0;
+    text-decoration: none;
+}
+
+.itemres-hover .absWrap .top-info img {
+    width: 13px;
+    margin-left: 0;
+    margin-right: 4px;
+    margin-top: -1px;
+}
+
+.itemres-hover .absWrap .top-info img, .itemres-hover .absWrap img.commentView {
+    object-fit: contain;
+}
+
+.top-info img {
+    width: 2.5%;
+    height: 0.8rem;
+    position: relative;
+    margin-left: 1rem;
+}
+
+img.commentView {
+    width: 1rem;
+    height: 0.9rem;
+    margin-top: 1px;
+    margin-left: 0px;
+}
+
+.views {
+    color: white !important;
+    display: inline-block;
+}
+
+.itemres-hover img {
+    z-index: -2;
+    object-fit: cover;
+}
+
+    .itemres-hover img.mrz {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        vertical-align: middle;
+    }
+
+.main-article {
+    padding-left: 15px;
+}
+
+.theme-link {
+    color: rgb(90, 90, 90);
+    text-transform: uppercase;
+    display: inline-block;
+    font-family: GothamPro;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: small;
+}
+
+.main-article-descr {
+    margin-top: auto;
+}
+
+.main-article a {
+    text-decoration: none;
+}
+
+.main-article-header {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: black;
+    margin-bottom: .5rem;
+    margin-top: .65rem;
+}
+
+.main-article-subheader {
+    font-size: 1rem;
+    color: #353535;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    font-family: GothamPro;
+}
+
+.main-article .art-date .month-text,
+.main-article .art-date .time-text,
+.main-article .art-date .author-text {
+    color: #0f0f0f !important;
+}

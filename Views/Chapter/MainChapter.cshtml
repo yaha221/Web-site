@@ -1,0 +1,733 @@
+﻿
+@{
+    ViewBag.Title = "MainChapter";
+}
+@section Head{
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <link rel="stylesheet" href="~/Content/css/header.css">
+        <link rel="stylesheet" href="~/Content/css/chapter.css">
+        <link rel="stylesheet" href="~/Content/css/footer.css">
+        <link rel="stylesheet" href="~/Content/css/media.css">
+        <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>@ViewBag.Title</title>
+    </head>
+}
+<div class="content">
+    <div class="row">
+        <h1 class="h2 indetn">Кофейный дневник</h1>
+        <ul class="menuLink">
+            <li>
+                @Html.ActionLink("Все главы", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Приготовление", "Chapter", "Chapter", null, new{@class = "activeMenuLink"})
+            </li>
+            <li>
+                @Html.ActionLink("Обжарка", "", "")
+            </li>
+            <li>
+                @Html.ActionLink("Выращивание", "", "")
+            </li>
+            <li>
+                @Html.ActionLink("Оборудование", "", "")
+            </li>
+        </ul>
+    </div>
+    <div class="row row-main" style="display:flex;">
+                <div class="col-side">
+            <div class="tags">
+                @Html.ActionLink("Эспрессо", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Вода", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Молоко", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Кофемашина", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Кофемолка", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Книги", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Альтернатива", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("История кофе", "", "", null, new { @class = "tag-link" })
+                @Html.ActionLink("Все теги", "", "", null, new { @class = "tag-link" })
+            </div>
+            <div class="groupPosts_rigthBlock">
+                <div class="col-lg">
+                    <div class="itemres new">
+                        <div class="article-card big" style="background-image: url(@Url.Content("~/Content/img/Articles/Article1.jpg"))">
+                            <div class="big-hover">
+                                <a href="#" class="absLink"></a>
+                            </div>
+                            <a href="\" class="surface">
+                                <p class="theme">Серия статей</p>
+                            </a>
+                            <a href="\" class="surface marTopNone">
+                                <p class="art-header">Как правильно рисовать на кофе?</p>
+                                <div class="art-descr">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                            </a>
+                            <p class="art-date">
+                                <span class="month-text">16 июня 2021</span>
+                                <span class="time-text">15 мин. на прочтение</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="itemres new">
+                        <div class="article-card big" style="background-image: url(@Url.Content("~/Content/img/Articles/Article3.jpg"))">
+                            <div class="big-hover">
+                                <a href="#" class="absLink"></a>
+                            </div>
+                            <a href="\" class="surface">
+                                <p class="theme">Серия статей</p>
+                            </a>
+                            <a href="\" class="surface marTopNone">
+                                <p class="art-header">Всё о кофе по-турецки</p>
+                                <div class="art-descr">Кратко пройдёмся по истории турецкого кофе и посмотрим на его положение сейчас</div>
+                            </a>
+                            <p class="art-date">
+                                <span class="month-text">16 июня 2021</span>
+                                <span class="time-text">25 мин. на прочтение</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-main">
+            <div class="newArticle">
+                <div class="imgFon">
+                    <img class="cover-img" src="@Url.Content("~/Content/img/Articles/newArticle.jpg")" alt="">
+                    <div class="big-hover">
+                        <a href="#" class="fav">
+                            <img src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                        </a>
+                        <a href="#" class="absLink"></a>
+                    </div>
+                </div>
+                <div class="absWrap">
+                    <div class="top-info">
+                        <a href="#" class="comments">
+                            <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                            0
+                        </a>
+                        <a href="#" class="views">
+                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                            0
+                        </a>
+                    </div>
+                    <a href="\" class="surface">
+                        <p class="theme">Серия статей</p>
+                    </a>
+                    <a href="\" class="surface marTopNone">
+                        <p class="art-header">Как правильно рисовать на кофе?</p>
+                        <div class="art-descr">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                    </a>
+                    <p class="art-date">
+                        <span class="month-text">16 июня 2021</span>
+                        <span class="time-text">15 мин. на прочтение</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row" style="padding: 0;">
+                <div class="sort menuLink-wrap verticalScroll">
+                    <a class="sort-inner">Сортировать по: </a>
+                    <a class="sort-inner blog-category-sort activeBlog" data-sort="date">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        новизне
+                    </a>
+                    <a class="sort-inner blog-category-sort" data-sort="likes">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        рекомендациям
+                    </a>
+                    <a class="sort-inner blog-category-sort" data-sort="views">
+                        <span class="lnr lnr-arrow-down"></span>
+                        <span class="lnr lnr-arrow-up"></span>
+                        просмотров
+                    </a>
+                    <p class="all-articles">18 статей</p>
+                </div>
+                <div class="for-paginate">
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/manufactur1.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg" style="margin-left:20px;margin-right:20px;">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/cookkofe1.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/obzharka1.png"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/cultivate1.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg" style="margin-left:20px;margin-right:20px;">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/obzharka3.png"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card big" style="background-image: url(@Url.Content("~/Content/img/Articles/manufactur2.jpg"))">
+                                    <div class="big-hover">
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                        <a href="#" class="absLink"></a>
+                                    </div>
+                                    <a href="\" class="surface">
+                                        <p class="theme">Серия статей</p>
+                                    </a>
+                                    <a href="\" class="surface marTopNone">
+                                        <p class="art-header">Как правильно рисовать на кофе?</p>
+                                        <div class="art-descr">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <p class="art-date">
+                                        <span class="month-text">16 июня 2021</span>
+                                        <span class="time-text">15 мин. на прочтение</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg-8">
+                            <div class="itemres new">
+                                <div class="article-card big" style="background-image: url(@Url.Content("~/Content/img/Articles/cultivate2.jpg"))">
+                                    <div class="big-hover">
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                        <a href="#" class="absLink"></a>
+                                    </div>
+                                    <a href="\" class="surface">
+                                        <p class="theme">Серия статей</p>
+                                    </a>
+                                    <a href="\" class="surface marTopNone">
+                                        <p class="art-header">Как правильно рисовать на кофе?</p>
+                                        <div class="art-descr">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <p class="art-date">
+                                        <span class="month-text">16 июня 2021</span>
+                                        <span class="time-text">15 мин. на прочтение</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg" style="margin-left:15px;margin-right:0;">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/obzharka4.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg-8" style="padding-left: 0; padding-right: 7px">
+                            <div class="itemres new">
+                                <div class="article-card big" style="background-image: url(@Url.Content("~/Content/img/Articles/cultivate4.jpg"))">
+                                    <div class="big-hover">
+                                        <div class="absWrap">
+                                            <a href="#" class="absLink"></a>
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                    <a href="\" class="surface">
+                                        <p class="theme">Серия статей</p>
+                                    </a>
+                                    <a href="\" class="surface marTopNone">
+                                        <p class="art-header">Как правильно рисовать на кофе?</p>
+                                        <div class="art-descr">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <p class="art-date">
+                                        <span class="month-text">16 июня 2021</span>
+                                        <span class="time-text">15 мин. на прочтение</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg" style="margin-left:15px;margin-right:0;">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/cookkofe2.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/obzharka2.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg" style="margin-left:20px;margin-right:20px;">
+                            <div class="itemres new">
+                                <div class="article-card big" style="background-image: url(@Url.Content("~/Content/img/Articles/cookkofe3.png"))">
+                                    <div class="big-hover">
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                        <a href="#" class="absLink"></a>
+                                    </div>
+                                    <a href="\" class="surface">
+                                        <p class="theme">Серия статей</p>
+                                    </a>
+                                    <a href="\" class="surface marTopNone">
+                                        <p class="art-header">Как правильно рисовать на кофе?</p>
+                                        <div class="art-descr">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <p class="art-date">
+                                        <span class="month-text">16 июня 2021</span>
+                                        <span class="time-text">15 мин. на прочтение</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/cultivate5.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; padding: 0px;">
+                        <div class="col-lg" style="margin-left:0;margin-right:7px;">
+                            <div class="itemres new">
+                                <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/obzharka5.jpg"));">
+                                    <div class="itemres-hover">
+                                        <a href="#" class="absLink"></a>
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="main-article">
+                                    <a href="\" class="theme-link">
+                                        Индустрия
+                                    </a>
+                                    <a href="\">
+                                        <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                        <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <div class="main-article-descr">
+                                        <p class="art-date">
+                                            <span class="month-text">16 июня 2021</span>
+                                            <span class="time-text">15 мин. на прочтение</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8" style="padding-left: 15px; padding-right: 0">
+                            <div class="itemres new">
+                                <div class="article-card big" style="background-image: url(@Url.Content("~/Content/img/Articles/cultivate3.png"))">
+                                    <div class="big-hover">
+                                        <div class="absWrap">
+                                            <div class="top-info">
+                                                <a href="#" class="comments">
+                                                    <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                    0
+                                                </a>
+                                                <a href="#" class="views">
+                                                    <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                    0
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="fav">
+                                            <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                        </a>
+                                        <a href="#" class="absLink"></a>
+                                    </div>
+                                    <a href="\" class="surface">
+                                        <p class="theme">Серия статей</p>
+                                    </a>
+                                    <a href="\" class="surface marTopNone">
+                                        <p class="art-header">Как правильно рисовать на кофе?</p>
+                                        <div class="art-descr">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                    </a>
+                                    <p class="art-date">
+                                        <span class="month-text">16 июня 2021</span>
+                                        <span class="time-text">15 мин. на прочтение</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

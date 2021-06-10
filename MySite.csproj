@@ -1,0 +1,723 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\Site\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\Site\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C61BA14-4240-4950-A456-3B72B188FBEF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MySite</RootNamespace>
+    <AssemblyName>MySite</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44305</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Authentication.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authentication.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Authentication.Core.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authentication.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Authorization.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Authorization.Policy, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Authorization.Policy.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Authorization.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Http.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Extensions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Http.Extensions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Mvc.Core.2.2.5\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.ResponseCaching.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.ResponseCaching.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Routing.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.DotNet.PlatformAbstractions.2.1.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.EntityFrameworkCore.3.1.15\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Caching.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Caching.Memory.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Configuration.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Configuration.Binder.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.DependencyInjection.3.1.15\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.DependencyModel.2.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Logging.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Logging.Abstractions.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.ObjectPool, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.ObjectPool.2.2.0\lib\netstandard2.0\Microsoft.Extensions.ObjectPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Options.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Extensions.Primitives.3.1.15\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Site\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\Site\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\Site\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\Site\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\Site\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\Site\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\Site\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\Site\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\Site\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\article.css" />
+    <Content Include="Content\css\chapter.css" />
+    <Content Include="Content\css\test.css" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Desktop Font\demo-files\demo.css" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Desktop Font\demo-files\demo.js" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Desktop Font\demo-files\liga.js" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Desktop Font\Read Me.txt" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Desktop Font\Reference.html" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\License.txt" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\alarm.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\apartment.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-down-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-down.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-left-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-left.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-right-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-right.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-up-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\arrow-up.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\bicycle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\bold.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\book.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\bookmark.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\briefcase.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\bubble.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\bug.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\bullhorn.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\bus.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\calendar-full.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\camera-video.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\camera.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\car.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cart.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chart-bars.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\checkmark-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-down-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-down.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-left-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-left.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-right-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-right.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-up-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\chevron-up.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\circle-minus.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\clock.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cloud-check.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cloud-download.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cloud-sync.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cloud-upload.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cloud.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\code.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\coffee-cup.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cog.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\construction.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\crop.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cross-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\cross.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\database.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\diamond.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\dice.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\dinner.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\direction-ltr.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\direction-rtl.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\download.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\drop.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\earth.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\enter-down.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\enter.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\envelope.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\exit-up.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\exit.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\eye.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\file-add.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\file-empty.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\film-play.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\flag.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\frame-contract.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\frame-expand.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\funnel.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\gift.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\graduation-hat.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\hand.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\heart-pulse.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\heart.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\highlight.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\history.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\home.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\hourglass.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\inbox.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\indent-decrease.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\indent-increase.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\italic.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\keyboard.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\laptop-phone.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\laptop.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\layers.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\leaf.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\license.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\lighter.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\line-spacing.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\linearicons.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\link.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\list.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\location.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\lock.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\magic-wand.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\magnifier.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\map-marker.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\map.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\menu-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\menu.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\mic.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\moon.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\move.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\music-note.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\mustache.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\neutral.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\page-break.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\paperclip.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\paw.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pencil.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\phone-handset.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\phone.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\picture.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pie-chart.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pilcrow.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\plus-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pointer-down.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pointer-left.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pointer-right.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pointer-up.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\poop.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\power-switch.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\printer.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\pushpin.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\question-circle.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\redo.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\rocket.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\sad.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\screen.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\select.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\shirt.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\smartphone.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\smile.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\sort-alpha-asc.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\sort-amount-asc.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\spell-check.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\star-empty.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\star-half.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\star.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\store.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\strikethrough.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\sun.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\sync.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\tablet.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\tag.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\text-align-center.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\text-align-justify.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\text-align-left.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\text-align-right.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\text-format-remove.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\text-format.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\text-size.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\thumbs-down.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\thumbs-up.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\train.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\trash.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\underline.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\undo.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\unlink.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\upload.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\user.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\users.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\volume-high.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\volume-low.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\volume-medium.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\volume.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\warning.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\SVG\wheelchair.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\demo-files\demo.css" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\demo-files\demo.js" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\demo.html" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\Read Me.txt" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\style.css" />
+    <Content Include="Content\img\Articles\Article1.jpg" />
+    <Content Include="Content\img\Articles\Article3.jpg" />
+    <Content Include="Content\img\Articles\cookkofe1.jpg" />
+    <Content Include="Content\img\Articles\cookkofe2.jpg" />
+    <Content Include="Content\img\Articles\cookkofe3.png" />
+    <Content Include="Content\img\Articles\cultivate1.jpg" />
+    <Content Include="Content\img\Articles\cultivate2.jpg" />
+    <Content Include="Content\img\Articles\cultivate3.png" />
+    <Content Include="Content\img\Articles\cultivate4.jpg" />
+    <Content Include="Content\img\Articles\cultivate5.jpg" />
+    <Content Include="Content\img\Articles\manufactur1.jpg" />
+    <Content Include="Content\img\Articles\manufactur2.jpg" />
+    <Content Include="Content\img\Articles\newArticle.jpg" />
+    <Content Include="Content\img\Articles\obzharka1.png" />
+    <Content Include="Content\img\Articles\obzharka2.jpg" />
+    <Content Include="Content\img\Articles\obzharka3.png" />
+    <Content Include="Content\img\Articles\obzharka4.jpg" />
+    <Content Include="Content\img\Articles\obzharka5.jpg" />
+    <Content Include="Content\img\Author\anastasion.jpg" />
+    <Content Include="Content\img\Author\bomj.jpg" />
+    <Content Include="Content\img\Author\whitebackground.jpg" />
+    <Content Include="Content\img\Icon\bookmark.png" />
+    <Content Include="Content\img\Icon\breadcrumb.png" />
+    <Content Include="Content\img\Icon\calendar.png" />
+    <Content Include="Content\img\Icon\calendarMain.png" />
+    <Content Include="Content\img\Icon\comments.png" />
+    <Content Include="Content\img\Icon\time.png" />
+    <Content Include="Content\img\Icon\timeMain.png" />
+    <Content Include="Content\img\Icon\views.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\header.css" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\media.css" />
+    <Content Include="Content\css\footer.css" />
+    <Content Include="Content\img\Author\me.jpg" />
+    <Content Include="Content\js\myScript.js" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Desktop Font\Linearicons-Free.ttf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\alarm.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\apartment.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-down-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-down.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-left-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-left.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-right-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-right.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-up-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\arrow-up.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\bicycle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\bold.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\book.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\bookmark.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\briefcase.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\bubble.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\bug.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\bullhorn.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\bus.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\calendar-full.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\camera-video.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\camera.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\car.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cart.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chart-bars.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\checkmark-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-down-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-down.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-left-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-left.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-right-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-right.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-up-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\chevron-up.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\circle-minus.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\clock.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cloud-check.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cloud-download.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cloud-sync.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cloud-upload.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cloud.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\code.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\coffee-cup.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cog.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\construction.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\crop.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cross-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\cross.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\database.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\diamond.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\dice.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\dinner.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\direction-ltr.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\direction-rtl.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\download.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\drop.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\earth.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\enter-down.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\enter.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\envelope.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\exit-up.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\exit.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\eye.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\file-add.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\file-empty.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\film-play.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\flag.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\frame-contract.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\frame-expand.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\funnel.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\gift.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\graduation-hat.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\hand.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\heart-pulse.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\heart.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\highlight.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\history.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\home.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\hourglass.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\inbox.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\indent-decrease.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\indent-increase.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\italic.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\keyboard.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\laptop-phone.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\laptop.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\layers.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\leaf.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\license.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\lighter.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\line-spacing.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\linearicons.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\link.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\list.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\location.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\lock.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\magic-wand.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\magnifier.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\map-marker.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\map.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\menu-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\menu.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\mic.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\moon.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\move.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\music-note.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\mustache.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\neutral.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\page-break.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\paperclip.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\paw.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pencil.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\phone-handset.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\phone.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\picture.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pie-chart.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pilcrow.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\plus-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pointer-down.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pointer-left.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pointer-right.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pointer-up.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\poop.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\power-switch.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\printer.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\pushpin.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\question-circle.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\redo.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\rocket.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\sad.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\screen.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\select.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\shirt.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\smartphone.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\smile.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\sort-alpha-asc.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\sort-amount-asc.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\spell-check.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\star-empty.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\star-half.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\star.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\store.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\strikethrough.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\sun.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\sync.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\tablet.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\tag.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\text-align-center.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\text-align-justify.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\text-align-left.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\text-align-right.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\text-format-remove.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\text-format.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\text-size.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\thumbs-down.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\thumbs-up.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\train.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\trash.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\underline.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\undo.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\unlink.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\upload.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\user.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\users.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\volume-high.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\volume-low.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\volume-medium.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\volume.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\warning.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\PDF\wheelchair.pdf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\fonts\Linearicons-Free.ttf" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\fonts\Linearicons-Free.woff" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\fonts\Linearicons-Free.woff2" />
+    <Content Include="Content\font\Linearicons-Free-v1.0.0\Web Font\selection.json" />
+    <Content Include="Views\Chapter\GetNameChapter.cshtml" />
+    <Content Include="Views\Article\ReadArticle.cshtml" />
+    <None Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\ChapterController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\BaristaContext.cs" />
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62996</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44305/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\Site\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\Site\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

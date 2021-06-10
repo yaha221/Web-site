@@ -1,0 +1,229 @@
+﻿@model MySite.Models.Article
+@{
+    ViewBag.Title = "";
+}
+@section Head{
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <link rel="stylesheet" href="~/Content/css/header.css">
+        <link rel="stylesheet" href="~/Content/css/article.css">
+        <link rel="stylesheet" href="~/Content/css/footer.css">
+        <link rel="stylesheet" href="~/Content/css/media.css">
+        <script src="https://kit.fontawesome.com/f6816dd194.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>@Model.NameArticle</title>
+    </head>
+}
+@section Header{
+    <header class="topnav" id="myTopnav">
+        <div class="row-header">
+            @Html.ActionLink("Главная", "Index", "Home", null, new { @class = "home" })
+            <a href="#test">Тесты</a>
+            @Html.ActionLink("Войти", "SignIn", "Account", null, new { @style = "float:right;" })
+            @Html.ActionLink("Зарегистрироваться", "SignUp", "Account", null, new { @style = "float:right;" })
+            <a href="javascript:void(0)" class="icon" onclick="myFunction()">&#9776</a>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Наверх</button>
+        </div>
+    </header>
+}
+<div class="content">
+    <div class="breadcrumb mb20">
+        <div class="row">
+            <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="ItemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href="/" itemtype="http://schema.org/Thing" itemprop="item"><span itemprop="name">Гланая</span></a>
+                <meta itemprop="position" content="1">
+            </li>
+            <li itemprop="ItemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href=@Url.Content($"~/Глава/{Model.Chapter.NameChapter}") itemtype="http://schema.org/Thing" itemprop="item"><span itemprop="name">@Model.Chapter.NameChapter</span></a>
+                <meta itemprop="position" content="2">
+            </li>
+            <li itemprop="ItemListElement" itemscope itemtype="http://schema.org/ListItem">
+                <a href="@Url.Content($"~/Статья/{Model.NameArticle}")" itemtype="http://schema.org/Thing" itemprop="item"><span itemprop="name">@Model.NameArticle</span></a>
+                <meta itemprop="position" content="3">
+            </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9" style="padding:0;">
+            <a href="/" class="greyLink indent desNone">Ко всем статьям</a>
+            <h1 class="indent article-header">@Model.NameArticle</h1>
+            <div class="article-leadtext">
+                <p>@Model.ShortDescriptionArticle</p>
+            </div>
+        </div>
+        <div class="article-info" style="border-bottom:0;">
+            <p class="article-info-inner time" >
+                <img src="@Url.Content("~/Content/img/Icon/timeMain.png")" alt="">
+                @Model.TimeRead мин. на чтение
+            </p>
+            
+            <p class="article-info-inner views-info">
+                <img src="/Content/img/Icon/views.png" alt="">
+                @Model.NumViews просмотров
+            </p>
+            <div class="article-info-right">
+                <p class="article-info-inner article-fav">
+                    <img src="/Content/img/Icon/bookmark.png" alt="">
+                    <a href="#" class="blog-link-fav">Закладка</a>
+                </p>
+                <p class="article-info-inner article-comm">
+                    <img src="/Content/img/Icon/comments.png" alt="">
+                    @Model.NumComments комментариев
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-v10" style="padding-right:0">
+            <div class="article-content">
+                <div class="article-cover" style="background-image:url(@Url.Content($"~/{@Model.ImageScrMain}"))"></div>
+                <div class="row" style="display: flex; padding: 0px;">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-8">
+                        <div class="article-text">
+                            <div class="article-text-content">
+                                @Model.TextArticle
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="author-article-block">
+                           <div class="article-author-img" style="background-image: url(@Url.Content($"{@Model.Author.ImageScr}"));"></div>
+                           <p class="article-author">@Model.Author.FullName<p> 
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="display: flex; padding: 0px;">
+                    <div class="col-lg-9" style="padding-left:0px;">
+                        <div class="read-another">
+                            <p class="read-another-header">Читайте также</p>
+                            <div class="row" style="display: flex; padding: 0px;">
+                                <div class="col-lg">
+                                    <div class="itemres new">
+                                        <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/manufactur1.jpg"));">
+                                            <div class="itemres-hover">
+                                                <a href="#" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="#" class="comments">
+                                                            <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            0
+                                                        </a>
+                                                        <a href="#" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            0
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="\" class="theme-link">
+                                                Индустрия
+                                            </a>
+                                            <a href="\">
+                                                <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                                <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">16 июня 2021</span>
+                                                    <span class="time-text">15 мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg" style="margin-left:20px;margin-right:20px;">
+                                    <div class="itemres new">
+                                        <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/cookkofe1.jpg"));">
+                                            <div class="itemres-hover">
+                                                <a href="#" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="#" class="comments">
+                                                            <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            0
+                                                        </a>
+                                                        <a href="#" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            0
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="\" class="theme-link">
+                                                Индустрия
+                                            </a>
+                                            <a href="\">
+                                                <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                                <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">16 июня 2021</span>
+                                                    <span class="time-text">15 мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg">
+                                    <div class="itemres new">
+                                        <div class="article-card" style="background-image: url(@Url.Content("~/Content/img/Articles/obzharka1.png"));">
+                                            <div class="itemres-hover">
+                                                <a href="#" class="absLink"></a>
+                                                <div class="absWrap">
+                                                    <div class="top-info">
+                                                        <a href="#" class="comments">
+                                                            <img class="commentView" src="@Url.Content("~/Content/img/Icon/views.png")" alt="">
+                                                            0
+                                                        </a>
+                                                        <a href="#" class="views">
+                                                            <img src="@Url.Content("~/Content/img/Icon/comments.png")" alt="">
+                                                            0
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="fav">
+                                                    <img class="mrz" src="@Url.Content("~/Content/img/Icon/bookmark.png")" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="main-article">
+                                            <a href="\" class="theme-link">
+                                                Индустрия
+                                            </a>
+                                            <a href="\">
+                                                <p class="main-article-header">Как правильно рисовать на кофе?</p>
+                                                <div class="main-article-subheader">Расскаже и покажем как правильно рисовать на пенке и разберём главные ошибки начинающих</div>
+                                            </a>
+                                            <div class="main-article-descr">
+                                                <p class="art-date">
+                                                    <span class="month-text">16 июня 2021</span>
+                                                    <span class="time-text">15 мин. на прочтение</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

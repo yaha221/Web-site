@@ -1,0 +1,135 @@
+:root{
+    --clr--btn:#0f0f0f;
+    --clr--fon: #ffffff;
+    --clr--text: #fff;
+  }
+  *{
+      box-sizing: border-box;
+  }
+  /*HEADER*/
+.right {
+    float: right;
+}
+  .topnav {
+    overflow: hidden;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 3px solid transparent;
+  }
+  .row-header{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    flex: auto;
+    flex-direction:row;
+    flex-wrap: nowrap;
+  }
+  header.scroll{
+    background: #ffffff;
+    box-shadow: 0 3px 5px 0 rgb(0 0 0 / 50%);
+  }
+  .active {
+    background-color: rgb(0 0 0 / 5%);
+    color: black;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  .dropdown {
+      float: left;
+      overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+      font-size: 14px;    
+      border: none;
+      outline: none;
+      color: var(--clr-fon);
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+      z-index: 1;
+  }
+  
+  .dropdown-content {
+      display: none;
+      position: fixed;
+      background-color: #ffffff;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+  }
+  .topnav a:hover {
+    border-bottom: 3px solid #32D6F9;
+}
+
+.topnav a.active {
+    border-bottom: 3px solid #32D6F9;
+}
+  
+   .dropdown:hover .dropbtn {
+    background-color: var(--clr-fon);
+    color: var(--clr-fon);
+  }c
+  
+  .dropdown-content a:hover {
+      background-color: var(--clr-fon);
+      color: black;
+  }
+  
+  .dropdown:hover .dropdown-content {
+      display: block;
+  }
+  #myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 999; /* Make sure it does not overlap */
+    padding: 10px 20px;
+    color: var(--clr--btn);
+    background: #ffffff;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 4px
+}
+
+#myBtn:hover {
+  background: var(--clr--btn);
+  color: var(--clr--text);
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--clr--btn),
+              0 0 25px var(--clr--btn),
+              0 0 50px var(--clr--btn),
+              0 0 100px var(--clr--btn); /* Add a dark-grey background on hover */
+}
+.logReg{
+  align-items: flex-end;
+}
